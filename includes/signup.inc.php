@@ -15,36 +15,31 @@ if (isset($_POST["submit"])) {
         header("location: ../signup.php?error=emptyinput");
         exit();
     }
+
     if (invalidUid($username) !== false) {
         header("location: ../signup.php?error=invaliduid");
         exit();
     }
+
     if (invalidEmail($emailAdd) !== false) {
         header("location: ../signup.php?error=invalidemail");
         exit();
     }
+
     if (pwdMatch($pwd, $rePwd) !== false) {
         header("location: ../signup.php?error=pwdmatcherror");
         exit();
     }
+
+    $conn = databaseConn();
     if (uidExists($conn, $username, $emailAdd) !== false) {
         header("location: ../signup.php?error=usernametaken");
         exit();
     }
 
     createUser($conn, $username, $emailAdd, $pwd);
-    }
-    else {
-        header("location: ../signup.php");
-        exit();
-    }
 
-
-
-
-    var_dump($_POST[]);
-
-
-    else {
+} else {
     header("location: ../signup.php");
+    exit();
 }

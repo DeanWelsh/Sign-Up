@@ -30,11 +30,7 @@ function invalidUid($username) {
     }
 
     function pwdMatch($pwd, $rePwd) {
-    if ($pwd !== $rePwd) {
-    $result = true;
-    }
-    else {
-     $result =false;
+
     }
 
     function uidExists($conn, $username, $emailAdd) {
@@ -75,5 +71,4 @@ function invalidUid($username) {
             exit();
 
 }
-}
-}
+
